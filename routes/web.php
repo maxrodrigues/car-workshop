@@ -11,7 +11,30 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/panel/service-orders', fn() => view('pages.service-orders'))->name('service-orders');
-Route::get('/panel/clients', fn() => view('pages.clients'))->name('clients');
-Route::get('/panel/cars', fn() => view('pages.cars'))->name('cars');
-Route::get('/panel/services', fn() => view('pages.services'))->name('services');
+Route::prefix('panel')->group(function () {
+
+    Route::get('service-orders', fn() => view('pages.service-orders'))->name('service-orders');
+
+
+    Route::prefix('customers')->name('customers.')->group(function () {
+        Route::get('', fn() => view('pages.customers.index'))->name('index');
+        Route::get('form', fn() => view('pages.customers.form'))->name('form');
+    });
+
+    Route::prefix('cars')->name('cars.')->group(function () {
+        Route::get('', fn() => view('pages.cars.index'))->name('index');
+        Route::get('cars', fn() => view('pages.cars.form'))->name('form');
+    });
+
+    Route::prefix('services')->name('services.')->group(function () {
+        Route::get('', fn() => view('pages.services.index'))->name('index');
+        Route::get('form', fn() => view('pages.services.form'))->name('form');
+    });
+
+    Route::prefix('transactions')->name('transactions.')->group(function () {
+        Route::get('', fn() => view('pages.transactions.index'))->name('index');
+        Route::get('form', fn() => view('pages.transactions.form'))->name('form');
+    });
+
+});
+

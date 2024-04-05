@@ -8,7 +8,7 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <a href="#" class="btn btn-primary btn px-4">
+    <a href=" {{ route('services.index') }}" class="btn btn-primary btn px-4">
         <i class="fas fa-arrow-left mr-2"></i>
         Voltar
     </a>

@@ -306,18 +306,21 @@ return [
         ],
         [
             'text' => 'Clientes',
-            'route' => 'clients',
+            'route' => 'customers.index',
             'icon' => 'fas fa-fw fa-users',
+            'active' => ['customers.*'],
         ],
         [
             'text' => 'Carros',
-            'route' => 'cars',
+            'route' => 'cars.index',
             'icon' => 'fas fa-fw fa-car-side',
+            'active' => ['cars.*'],
         ],
         [
             'text' => 'Serviços',
-            'route' => 'services',
+            'route' => 'services.index',
             'icon' => 'fas fa-fw fa-file-invoice',
+            'active' => ['services.*'],
         ],
         [
             'header' => 'FINANCEIRO',
@@ -325,8 +328,9 @@ return [
         ],
         [
             'text' => 'Fluxo de Caixa',
-            'url' => 'fluxo',
+            'route' => 'transactions.index',
             'icon' => 'fas fa-fw fa-dollar-sign',
+            'active' => ['transactions.*'],
         ],
 
 
